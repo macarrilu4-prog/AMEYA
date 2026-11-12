@@ -1,0 +1,159 @@
+     <span>Llenados del Tinaco de 500L al mes</span>
+                            <span id="bar-tinacos-count" class="font-semibold text-brand-sageLight">11.5 Tinacos llenos</span>
+                        </div>
+                        <div class="w-full h-3 bg-white/10 rounded-full overflow-hidden p-0.5">
+                            <div id="visual-bar" class="h-full bg-brand-sageLight rounded-full transition-all duration-500" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 07: NORMATIVA Y MARCO LEGAL (NOM) -->
+    <section id="normativa" class="py-24 px-6 lg:px-12 bg-brand-ivory">
+        <div class="max-w-5xl mx-auto space-y-8">
+            <div class="flex items-center gap-3 text-brand-sage">
+                <i class="fa-solid fa-shield-halved text-xl"></i>
+                <span class="text-xs tracking-[0.25em] font-semibold uppercase">07 / Cumplimiento Normativo</span>
+            </div>
+
+            <h2 class="font-serif text-3xl text-brand-petroleum">
+                Marco Normativo y Criterios de Seguridad (NOM)
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs text-brand-graphite/80 font-light">
+                <div class="p-6 bg-brand-stone/20 rounded-xl border border-brand-stone space-y-2">
+                    <h3 class="font-serif text-sm font-semibold text-brand-petroleum uppercase tracking-wider">NOM-003-SEMARNAT-1997</h3>
+                    <p>Establece los límites máximos permisibles de contaminantes para aguas tratadas que se reusan en servicios al público con contacto directo o indirecto (riego de áreas verdes y sanitarios).</p>
+                </div>
+
+                <div class="p-6 bg-brand-stone/20 rounded-xl border border-brand-stone space-y-2">
+                    <h3 class="font-serif text-sm font-semibold text-brand-petroleum uppercase tracking-wider">Agua No Potable</h3>
+                    <p>El sistema advierte claramente que el agua almacenada en el tinaco es exclusivamente para riego, patios o WC; bajo ninguna circunstancia debe destinarse para consumo humano o aseo personal directo.</p>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-brand-stone space-y-4">
+                <h3 class="font-serif text-xl text-brand-petroleum">Fuentes Oficiales</h3>
+                <div class="space-y-3 text-xs text-brand-graphite/80 font-light">
+                    <div class="flex flex-col sm:flex-row justify-between gap-1">
+                        <span><strong>SEMARNAT.</strong> NOM-003-SEMARNAT-1997: Aguas residuales tratadas reusadas.</span>
+                        <a href="https://www.gob.mx/semarnat" target="_blank" rel="noopener" class="text-brand-sage hover:underline whitespace-nowrap">gob.mx/semarnat <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a>
+                    </div>
+                    <div class="flex flex-col sm:flex-row justify-between gap-1">
+                        <span><strong>CONAGUA.</strong> Estadísticas del Agua en México y manejo de recursos hídricos.</span>
+                        <a href="https://www.gob.mx/conagua" target="_blank" rel="noopener" class="text-brand-sage hover:underline whitespace-nowrap">gob.mx/conagua <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-petroleumDark text-brand-ivory/60 py-12 px-6 lg:px-12 text-xs border-t border-white/10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-brand-sage text-brand-ivory flex items-center justify-center font-serif text-xs font-bold">
+                    A
+                </div>
+                <span class="font-serif text-sm tracking-wider uppercase text-brand-ivory">Ameyalatl</span>
+                <span>— Sistema de Reúso de Aguas Grises con Tinaco Esbelto</span>
+            </div>
+            <div>
+                <span>© 2026 Ameyalatl. Proyecto Técnico Académico.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('glass-panel', 'shadow-md', 'py-3');
+                    navbar.classList.remove('py-4');
+                } else {
+                    navbar.classList.remove('glass-panel', 'shadow-md', 'py-3');
+                    navbar.classList.add('py-4');
+                }
+            });
+
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileDrawer = document.getElementById('mobile-drawer');
+            mobileBtn.addEventListener('click', function() {
+                mobileDrawer.classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileDrawer.classList.add('hidden');
+                });
+            });
+
+            const inputPersonas = document.getElementById('calc-personas');
+            const inputDucha = document.getElementById('calc-ducha');
+            const inputLavabo = document.getElementById('calc-lavabo');
+            const inputLavadora = document.getElementById('calc-lavadora');
+            const inputEficiencia = document.getElementById('calc-eficiencia');
+
+            const valPersonas = document.getElementById('val-personas');
+            const valDucha = document.getElementById('val-ducha');
+            const valLavabo = document.getElementById('val-lavabo');
+            const valLavadora = document.getElementById('val-lavadora');
+            const valEficiencia = document.getElementById('val-eficiencia');
+
+            const resDiarioTotal = document.getElementById('res-diario-total');
+            const resDiarioRecuperable = document.getElementById('res-diario-recuperable');
+            const resMensualRecuperable = document.getElementById('res-mensual-recuperable');
+            const visualBar = document.getElementById('visual-bar');
+            const barTinacosCount = document.getElementById('bar-tinacos-count');
+
+            function calculateImpact() {
+                const personas = parseInt(inputPersonas.value);
+                const minutosDucha = parseInt(inputDucha.value);
+                const usosLavabo = parseInt(inputLavabo.value);
+                const cargasLavadoraSemana = parseInt(inputLavadora.value);
+                const eficiencia = parseInt(inputEficiencia.value);
+
+                valPersonas.textContent = `${personas} ${personas === 1 ? 'persona' : 'personas'}`;
+                valDucha.textContent = `${minutosDucha} minutos`;
+                valLavabo.textContent = `${usosLavabo} veces`;
+                valLavadora.textContent = `${cargasLavadoraSemana} cargas/sem`;
+                valEficiencia.textContent = `${eficiencia}%`;
+
+                // Estimaciones de caudal: Ducha (9 L/min), Lavabo (6 L/min por 30s = 3 L/uso), Lavadora (120 L/carga)
+                const aguaDuchaDia = personas * minutosDucha * 9;
+                const aguaLavaboDia = personas * usosLavabo * 3;
+                const aguaLavadoraDia = (cargasLavadoraSemana * 120) / 7;
+
+                const litrosDiariosTotales = aguaDuchaDia + aguaLavaboDia + aguaLavadoraDia;
+                const litrosDiariosRecuperables = litrosDiariosTotales * (eficiencia / 100);
+                const litrosMensualesRecuperables = litrosDiariosRecuperables * 30;
+                const tinacosEq = (litrosMensualesRecuperables / 500).toFixed(1);
+
+                resDiarioTotal.textContent = `${litrosDiariosTotales.toFixed(1)} Litros/día`;
+                resDiarioRecuperable.textContent = `${litrosDiariosRecuperables.toFixed(1)} Litros`;
+                resMensualRecuperable.textContent = `${Math.round(litrosMensualesRecuperables).toLocaleString()} Litros`;
+
+                visualBar.style.width = `${Math.min((litrosDiariosRecuperables / 300) * 100, 100)}%`;
+                barTinacosCount.textContent = `${tinacosEq} Tinacos de 500L al mes`;
+            }
+
+            [inputPersonas, inputDucha, inputLavabo, inputLavadora, inputEficiencia].forEach(input => {
+                input.addEventListener('input', calculateImpact);
+            });
+
+            document.getElementById('btn-reset-calc').addEventListener('click', function() {
+                inputPersonas.value = 4;
+                inputDucha.value = 8;
+                inputLavabo.value = 5;
+                inputLavadora.value = 4;
+                inputEficiencia.value = 80;
+                calculateImpact();
+            });
+
+            calculateImpact();
+        });
+    </script>
+</body>
+</html>
